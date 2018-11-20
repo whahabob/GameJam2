@@ -8,9 +8,29 @@ public class Respawn : MonoBehaviour
     private Transform player;
     [SerializeField]
     private Transform respawnPoint;
+    [SerializeField]
+    private ActiveDoors activeDoors;
+    [SerializeField]
+    private FloatVar time;
+    [SerializeField]
+    private float startTime;
 
-	void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        player.transform.position = respawnPoint.transform.position;
+        time._floatVar = startTime;
+    }
+
+    public void RespawnPlayer(Collider other)
+    {
+        StartCoroutine(RespawnPlayerDelay(other));
+    }
+
+    IEnumerator RespawnPlayerDelay(Collider other)
+    {
+        yield return new WaitForSeconds(2);
+
+        other.transform.position = respawnPoint.position;
+        activeDoors.resetDoors();
+        time._floatVar = startTime;
     }
 }
