@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6350c44b93d34ac4f96ac6bb194d9c2a, type: 3}
   m_Name: ActiveDoors
   m_EditorClassIdentifier: 
-  openDoors: []
+  openDoors:
+  - {fileID: 0}

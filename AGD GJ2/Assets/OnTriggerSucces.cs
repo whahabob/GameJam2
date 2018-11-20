@@ -16,10 +16,18 @@ public class OnTriggerSucces : MonoBehaviour
     [SerializeField]
     private float timeToIncrease;
 
+    [SerializeField]
+    private DoorData doorData;
+
+    [SerializeField]
+    private AudioClip audioClip;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !doorData.doorActivated)
         {
+            GetComponent<AudioSource>().PlayOneShot(audioClip);
+            doorData.doorActivated = true;
             SuccesEffect();
             activeDoors.openDoors.Add(door.gameObject);
             time._floatVar += timeToIncrease;
