@@ -26,7 +26,7 @@ public class Respawn : MonoBehaviour
     {
         StartCoroutine(RespawnPlayerDelay(other));
         Debug.Log("Death");
-        Instantiate(deathEffect, player.position);
+        Instantiate(deathEffect, player.transform);
     }
 
     IEnumerator RespawnPlayerDelay(Collider other)
