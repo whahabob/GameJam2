@@ -14,6 +14,8 @@ public class Respawn : MonoBehaviour
     private FloatVar time;
     [SerializeField]
     private float startTime;
+    [SerializeField]
+    private GameObject deathEffect;
 
     private void Start()
     {
@@ -23,6 +25,8 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer(Collider other)
     {
         StartCoroutine(RespawnPlayerDelay(other));
+        Debug.Log("Death");
+        Instantiate(deathEffect, player.position);
     }
 
     IEnumerator RespawnPlayerDelay(Collider other)
