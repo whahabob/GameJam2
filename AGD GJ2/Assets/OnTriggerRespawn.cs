@@ -13,13 +13,15 @@ public class OnTriggerRespawn : MonoBehaviour
     [SerializeField]
     private ActiveDoors activeDoors;
 
+    [SerializeField]
+    private FloatVar time;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-
             RespawnEffect();
-            StartCoroutine(respawn(other));
+            other.GetComponent<Respawn>().RespawnPlayer(other);
             activeDoors.openDoors.Add(door.gameObject);
         }
     }
@@ -27,13 +29,5 @@ public class OnTriggerRespawn : MonoBehaviour
     private void RespawnEffect()
     {
 
-    }
-
-    IEnumerator respawn(Collider other)
-    {
-        yield return new WaitForSeconds(2);
-
-        other.transform.position = respawnPoint.position;
-        activeDoors.resetDoors();
     }
 }

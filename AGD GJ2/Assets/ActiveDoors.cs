@@ -15,7 +15,6 @@ public class ActiveDoors : ScriptableObject
             item.transform.localRotation = new Quaternion(0, 0, 0, 0);
             item.transform.localPosition = new Vector3(0, -0.04806042f, -0.2174854f);
             item.GetComponent<Rigidbody>().isKinematic = false;
-            Debug.Log("Loop");
         }
 
         openDoors = new List<GameObject>();
