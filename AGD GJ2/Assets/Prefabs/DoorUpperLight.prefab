@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23738480122127126}
   - component: {fileID: 65198815166971438}
   m_Layer: 0
-  m_Name: Bovendeur2 (1)
+  m_Name: DoorUpperLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

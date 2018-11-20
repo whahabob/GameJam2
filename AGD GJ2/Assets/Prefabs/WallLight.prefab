@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23227904393205898}
   - component: {fileID: 65821532093450438}
   m_Layer: 0
-  m_Name: SGSlimLight
+  m_Name: WallLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
