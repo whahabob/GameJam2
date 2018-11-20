@@ -1089,12 +1089,6 @@ Prefab:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1535687699}
-    - target: {fileID: 114205600095151142, guid: 434d06288f91e1740905e4ef105613c8,
-        type: 2}
-      propertyPath: time
-      value: 
-      objectReference: {fileID: 11400000, guid: e9dfcf42e2710f447a193a2a6fceeeab,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 434d06288f91e1740905e4ef105613c8, type: 2}
   m_IsPrefabAsset: 0
