@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac8241859cef4143b5a6f7318c5a669, type: 3}
   m_Name: Time
   m_EditorClassIdentifier: 
-  _floatVar: 10
+  _floatVar: 4.505768

@@ -7,13 +7,7 @@ using UnityEngine.UI;
 public class TimerController : MonoBehaviour
 {
     public FloatVar timer;
-
-    // Use this for initialization
-    void Start ()
-    {
-        timer._floatVar = 10f;
-	}
-	
+    
 	// Update is called once per frame
 	void Update ()
     {

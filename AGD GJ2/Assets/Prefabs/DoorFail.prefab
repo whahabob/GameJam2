@@ -307,6 +307,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 0}
   door: {fileID: 4255121507459228}
   activeDoors: {fileID: 11400000, guid: 0a1814b62c25f854994604f2725be794, type: 2}
+  time: {fileID: 11400000, guid: e9dfcf42e2710f447a193a2a6fceeeab, type: 2}
 --- !u!135 &135071536767187180
 SphereCollider:
   m_ObjectHideFlags: 1
