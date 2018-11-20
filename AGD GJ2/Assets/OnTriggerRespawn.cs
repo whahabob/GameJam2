@@ -20,14 +20,8 @@ public class OnTriggerRespawn : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            RespawnEffect();
             other.GetComponent<Respawn>().RespawnPlayer(other);
             activeDoors.openDoors.Add(door.gameObject);
         }
-    }
-
-    private void RespawnEffect()
-    {
-
     }
 }
