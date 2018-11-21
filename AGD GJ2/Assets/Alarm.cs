@@ -20,6 +20,10 @@ public class Alarm : MonoBehaviour {
         {
             audioSource.Play(0);
             hasPlayed = true;
+        } else if(timer._floatVar > 5f && hasPlayed)
+        {
+            audioSource.Stop();
+            hasPlayed = false;
         }
 	}
 }
