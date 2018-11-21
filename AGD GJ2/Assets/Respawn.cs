@@ -53,6 +53,7 @@ public class Respawn : MonoBehaviour
         yield return new WaitForSeconds(1);
        
         other.transform.position = respawnPoint.position;
+        player.GetComponent<FirstPersonController>().m_MouseLook.respawn = true;
 
         /*
         other.GetComponentInChildren<FirstPersonController>().enabled = false;
