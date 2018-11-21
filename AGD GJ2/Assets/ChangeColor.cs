@@ -14,7 +14,8 @@ public class ChangeColor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if(timer._floatVar <= 5f)
         {
             light.color = color;

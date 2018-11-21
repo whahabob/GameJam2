@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Respawn : MonoBehaviour
 {
@@ -16,25 +18,52 @@ public class Respawn : MonoBehaviour
     private float startTime;
     [SerializeField]
     private GameObject deathEffect;
+    [SerializeField]
+    private AudioClip audioClip;
+
+    private GameObject deathInstanceEffect;
+
+    private bool respawning;
 
     private void Start()
     {
+        respawning = false;
         time._floatVar = startTime;
+    }
+
+    private void Update()
+    {
+        if (time._floatVar <= 0 && !respawning)
+        {
+            respawning = true;
+            RespawnPlayer(gameObject.GetComponent<Collider>());
+        }
     }
 
     public void RespawnPlayer(Collider other)
     {
         StartCoroutine(RespawnPlayerDelay(other));
-        Debug.Log("Death");
-        Instantiate(deathEffect, player.position);
+
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
+        deathInstanceEffect = Instantiate(deathEffect, player);
     }
 
     IEnumerator RespawnPlayerDelay(Collider other)
     {
-        yield return new WaitForSeconds(2);
-
+        yield return new WaitForSeconds(1);
+       
         other.transform.position = respawnPoint.position;
+
+        /*
+        other.GetComponentInChildren<FirstPersonController>().enabled = false;
+        other.transform.rotation = respawnPoint.rotation;
+        other.GetComponentInChildren<Transform>().rotation = respawnPoint.rotation;
+        other.GetComponentInChildren<FirstPersonController>().enabled = true;
+        */
+
         activeDoors.resetDoors();
         time._floatVar = startTime;
+        respawning = false;
+        Destroy(deathInstanceEffect);
     }
 }

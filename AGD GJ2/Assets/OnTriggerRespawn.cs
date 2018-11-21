@@ -16,18 +16,16 @@ public class OnTriggerRespawn : MonoBehaviour
     [SerializeField]
     private FloatVar time;
 
+    [SerializeField]
+    private DoorData doorData;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !doorData.doorActivated)
         {
-            RespawnEffect();
+            doorData.doorActivated = true;
             other.GetComponent<Respawn>().RespawnPlayer(other);
             activeDoors.openDoors.Add(door.gameObject);
         }
-    }
-
-    private void RespawnEffect()
-    {
-
     }
 }
