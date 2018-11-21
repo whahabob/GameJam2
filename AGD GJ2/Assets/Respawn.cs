@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityStandardAssets;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Respawn : MonoBehaviour
     private float startTime;
     [SerializeField]
     private AudioClip audioClip;
+    [SerializeField]
+    private string mainSceneName;
 
     private bool respawning;
 
@@ -27,12 +30,14 @@ public class Respawn : MonoBehaviour
     {
         respawning = false;
         time._floatVar = startTime;
+        activeDoors.openDoors = new List<GameObject>();
     }
 
     private void Update()
     {
         if (time._floatVar <= 0 && !respawning)
         {
+            Debug.Log("Time Up");
             respawning = true;
             RespawnPlayer(gameObject.GetComponent<Collider>());
         }
@@ -41,14 +46,13 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer(Collider other)
     {
         StartCoroutine(RespawnPlayerDelay(other));
-
         GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 
     IEnumerator RespawnPlayerDelay(Collider other)
     {
         yield return new WaitForSeconds(1);
-       
+
         other.transform.position = respawnPoint.position;
         player.GetComponent<FirstPersonController>().m_MouseLook.respawn = true;
 
@@ -60,14 +64,25 @@ public class Respawn : MonoBehaviour
         */
 
         deathCount._floatVar = 0;
-        activeDoors.openDoors = new List<GameObject>();
-        StartCoroutine(RespawnPlayerDelay(other));
         deathCount._floatVar++;
-        StartCoroutine(RespawnPlayerDelay(other));
 
         activeDoors.resetDoors();
         time._floatVar = startTime;
+
+        UnloadAllScenesExcept(mainSceneName);
         respawning = false;
     }
-}
 
+    void UnloadAllScenesExcept(string sceneName)
+    {
+        int c = SceneManager.sceneCount;
+        for (int i = 0; i < c; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name != sceneName)
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+        }
+    }
+}
