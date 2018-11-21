@@ -36,6 +36,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if(respawn) {
                 m_CharacterTargetRot = Quaternion.Euler(0f, 180, 0f);
+                respawn = false;
             }
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
