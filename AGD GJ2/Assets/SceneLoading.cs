@@ -13,7 +13,7 @@ public class SceneLoading : MonoBehaviour
         if(other.tag == "Player")
         {
             LoadScene();
-            //UnLoadScene();
+            UnLoadScene();
         }
     }
 
