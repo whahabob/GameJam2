@@ -7367,6 +7367,12 @@ Prefab:
       propertyPath: audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0b0b0b4ab2cd89847b713aee7ad63393, type: 3}
+    - target: {fileID: 114561483079564442, guid: 935cbe639ac7e3e45843789ffb903228,
+        type: 2}
+      propertyPath: deathCount
+      value: 
+      objectReference: {fileID: 11400000, guid: 51ba0271c6afde248aeb2ab684e234b3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 935cbe639ac7e3e45843789ffb903228, type: 2}
   m_IsPrefabAsset: 0
@@ -17011,6 +17017,7 @@ GameObject:
   - component: {fileID: 1701377878}
   - component: {fileID: 1701377877}
   - component: {fileID: 1701377876}
+  - component: {fileID: 1701377875}
   m_Layer: 0
   m_Name: Start signal
   m_TagString: timerObject
@@ -17018,6 +17025,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1701377875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701377874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051747ea0ee62774c82ec320a753456d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  death: {fileID: 11400000, guid: 51ba0271c6afde248aeb2ab684e234b3, type: 2}
+  deathText: {fileID: 458323137}
 --- !u!23 &1701377876
 MeshRenderer:
   m_ObjectHideFlags: 0
