@@ -166,6 +166,10 @@ Prefab:
       propertyPath: sceneToUnload
       value: Part3
       objectReference: {fileID: 0}
+    - target: {fileID: 4661603576530830, guid: 5d4904ad0f92623408149b814662bc04, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.89
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d4904ad0f92623408149b814662bc04, type: 2}
   m_IsPrefabAsset: 0
