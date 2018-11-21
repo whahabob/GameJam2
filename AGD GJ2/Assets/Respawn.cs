@@ -15,6 +15,8 @@ public class Respawn : MonoBehaviour
     [SerializeField]
     private FloatVar time;
     [SerializeField]
+    private FloatVar deathCount;
+    [SerializeField]
     private float startTime;
     [SerializeField]
     private GameObject deathEffect;
@@ -29,6 +31,7 @@ public class Respawn : MonoBehaviour
     {
         respawning = false;
         time._floatVar = startTime;
+        deathCount._floatVar = 0;
     }
 
     private void Update()
@@ -43,7 +46,7 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer(Collider other)
     {
         StartCoroutine(RespawnPlayerDelay(other));
-
+        deathCount._floatVar++;
         GetComponent<AudioSource>().PlayOneShot(audioClip);
         deathInstanceEffect = Instantiate(deathEffect, player);
     }
