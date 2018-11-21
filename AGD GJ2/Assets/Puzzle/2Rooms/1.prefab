@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 33979499442257928}
   - component: {fileID: 23336623680301136}
   m_Layer: 0
-  m_Name: TimerMonitor
+  m_Name: 1
   m_TagString: timerObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

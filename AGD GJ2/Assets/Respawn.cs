@@ -19,11 +19,7 @@ public class Respawn : MonoBehaviour
     [SerializeField]
     private float startTime;
     [SerializeField]
-    private GameObject deathEffect;
-    [SerializeField]
     private AudioClip audioClip;
-
-    private GameObject deathInstanceEffect;
 
     private bool respawning;
 
@@ -31,7 +27,6 @@ public class Respawn : MonoBehaviour
     {
         respawning = false;
         time._floatVar = startTime;
-        deathCount._floatVar = 0;
     }
 
     private void Update()
@@ -46,9 +41,8 @@ public class Respawn : MonoBehaviour
     public void RespawnPlayer(Collider other)
     {
         StartCoroutine(RespawnPlayerDelay(other));
-        deathCount._floatVar++;
+
         GetComponent<AudioSource>().PlayOneShot(audioClip);
-        deathInstanceEffect = Instantiate(deathEffect, player);
     }
 
     IEnumerator RespawnPlayerDelay(Collider other)
@@ -65,9 +59,15 @@ public class Respawn : MonoBehaviour
         other.GetComponentInChildren<FirstPersonController>().enabled = true;
         */
 
+        deathCount._floatVar = 0;
+        activeDoors.openDoors = new List<GameObject>();
+        StartCoroutine(RespawnPlayerDelay(other));
+        deathCount._floatVar++;
+        StartCoroutine(RespawnPlayerDelay(other));
+
         activeDoors.resetDoors();
         time._floatVar = startTime;
         respawning = false;
-        Destroy(deathInstanceEffect);
     }
 }
+

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33315900833277090}
   - component: {fileID: 23658092352614078}
   m_Layer: 0
-  m_Name: 1 1
+  m_Name: 3
   m_TagString: timerObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
