@@ -59,14 +59,15 @@ public class Respawn : MonoBehaviour
         other.GetComponentInChildren<FirstPersonController>().enabled = true;
         */
 
+        deathCount._floatVar = 0;
+        activeDoors.openDoors = new List<GameObject>();
+        StartCoroutine(RespawnPlayerDelay(other));
+        deathCount._floatVar++;
+        StartCoroutine(RespawnPlayerDelay(other));
+
         activeDoors.resetDoors();
         time._floatVar = startTime;
         respawning = false;
     }
 }
 
-        deathCount._floatVar = 0;
-        activeDoors.openDoors = new List<GameObject>();
-        StartCoroutine(RespawnPlayerDelay(other));
-        deathCount._floatVar++;
-        StartCoroutine(RespawnPlayerDelay(other));
