@@ -15,6 +15,8 @@ public class Respawn : MonoBehaviour
     [SerializeField]
     private FloatVar time;
     [SerializeField]
+    private FloatVar deathCount;
+    [SerializeField]
     private float startTime;
     [SerializeField]
     private AudioClip audioClip;
@@ -25,7 +27,6 @@ public class Respawn : MonoBehaviour
     {
         respawning = false;
         time._floatVar = startTime;
-        activeDoors.openDoors = new List<GameObject>();
     }
 
     private void Update()
@@ -63,3 +64,9 @@ public class Respawn : MonoBehaviour
         respawning = false;
     }
 }
+
+        deathCount._floatVar = 0;
+        activeDoors.openDoors = new List<GameObject>();
+        StartCoroutine(RespawnPlayerDelay(other));
+        deathCount._floatVar++;
+        StartCoroutine(RespawnPlayerDelay(other));
